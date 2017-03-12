@@ -7,7 +7,7 @@ class AddAppointment extends Component{
     super(props);
     this.kindConsultationList = props.kindConsultationList.map((option) => <option value={option.id} key={option.name}>{option.name}</option>);
 
-    let timeList = [...this.generateTimeArray(7,22)];
+    let timeList = this.generateTimeArray(7,22);
 
     this.timeList = timeList.map((option) => <option value={option.id} key={option.name}>{option.name}</option>);
     this.state = { kindConsultation: props.kindConsultationList[0].id, time: timeList[0].id};
