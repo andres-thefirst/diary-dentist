@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import AddAppointment from './AddAppointment';
 import './App.css';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import rootReducer from './reducers/AdConsultation';
-import ConsultationsComponent from './containers/Consultations';
+import rootReducer from './reducers/RootReducer';
+import AddAppointment from './containers/appointment/AddAppointment';
 import thunkMiddleware from 'redux-thunk';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
 
 let store = createStore(rootReducer, applyMiddleware(
     thunkMiddleware // lets us dispatch() functions
@@ -20,10 +25,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <AddAppointment kindConsultationList={kindConsultationList}/>
-        <Provider store={store}>
-          <ConsultationsComponent />
-        </Provider>
+        <MuiThemeProvider>
+          <Provider store={store}>
+            <AddAppointment kindConsultationList={kindConsultationList}/>
+          </Provider>
+        </MuiThemeProvider>
       </div>
     );
   }

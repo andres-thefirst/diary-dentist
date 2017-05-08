@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
-import { getConsultations } from '../actions/AddConsultation'
-import Consultations from '../components/Consultations'
+import { getConsultations } from '../../actions/Consultations'
+import Consultations from '../../components/consultation/AddConsultation'
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('mapStateToProps1',state.consultations);
   return {
     consultations: state.consultations
   }
@@ -11,15 +10,15 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: () => {
+    onClickFetch: () => {
       dispatch(getConsultations())
     }
   }
 }
 
-const ConsultationsComponent = connect(
+const AddConsultationComponent = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Consultations);
 
-export default ConsultationsComponent
+export default AddConsultationComponent

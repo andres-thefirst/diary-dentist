@@ -1,7 +1,6 @@
-import { combineReducers } from 'redux';
 import {
   FETCH_GET_CONSULTATIONS
-} from '../actions/AddConsultation';
+} from '../actions/Consultations';
 
 function consultations(state = [], action) {
     let result = {};
@@ -15,8 +14,8 @@ function consultations(state = [], action) {
     return result;
 }
 
-const rootReducer = combineReducers({
+const Consultations = {
   consultations
-});
+};
 
-export default rootReducer;
+export default Consultations;

@@ -1,9 +1,6 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
 
 class Consultations extends Component{
-  constructor(props) {
-    super(props);
-  }
 
   setData() {
     this.consultations =  this.props.consultations.map((item) => <li key={item.id}>{item.name}</li>);

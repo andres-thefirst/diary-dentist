@@ -1,0 +1,10 @@
+label, select {
+  display: block;
+}
+
+div {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
